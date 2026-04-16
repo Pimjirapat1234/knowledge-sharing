@@ -1,0 +1,322 @@
+/* ============================================================
+   Portal Realfact — Design Tokens
+   ============================================================
+   Source: REALFACT Corporate Identity Guideline v1.0
+   Purpose: Single source of truth for all UI values
+   Updated: 2026-04-01
+   ============================================================ */
+
+:root {
+  /* ============================================================
+     1. COLOR TOKENS
+     ============================================================ */
+
+  /* --- 1.1 Brand Colors (from CI Guideline) --- */
+  --color-primary:          #F05A28;   /* Vibrant Orange — Pantone 1665 C */
+  --color-primary-light:    #FF7A4D;
+  --color-primary-dark:     #D14A1E;
+  --color-primary-hover:    #E04E1F;
+  --color-primary-active:   #C44419;
+  --color-primary-subtle:   #FFF0EB;   /* Orange tint for backgrounds */
+  --color-primary-muted:    #FDDDD2;   /* Light orange for selected states */
+
+  --color-secondary:        #231F20;   /* Raisin Black — Pantone 296 C */
+  --color-secondary-light:  #3A3536;
+  --color-secondary-hover:  #1A1718;
+
+  /* --- 1.2 Semantic Colors (from CI Figma Design System) --- */
+  --color-success:          #28C76F;
+  --color-success-light:    #DFF7E9;
+  --color-success-dark:     #1F9D57;
+  --color-success-subtle:   #E8F8EE;
+
+  --color-danger:           #EA5455;
+  --color-danger-light:     #FDE4E4;
+  --color-danger-dark:      #D63031;
+  --color-danger-subtle:    #FDECEC;
+
+  --color-warning:          #FF9F43;
+  --color-warning-light:    #FFF0E1;
+  --color-warning-dark:     #E08A30;
+  --color-warning-subtle:   #FFF4E6;
+
+  --color-info:             #00CFE8;
+  --color-info-light:       #D6F5FA;
+  --color-info-dark:        #00A8C5;
+  --color-info-subtle:      #E0F7FA;
+
+  /* --- 1.3 Neutral / Gray Scale (from CI Guideline) --- */
+  --color-white:            #FFFFFF;
+  --color-gray-50:          #FAFAFA;
+  --color-gray-100:         #F8F9FA;
+  --color-gray-200:         #E9ECEF;
+  --color-gray-300:         #DEE2E6;
+  --color-gray-400:         #CED4DA;
+  --color-gray-500:         #ADB5BD;
+  --color-gray-600:         #6C757D;
+  --color-gray-700:         #495057;
+  --color-gray-800:         #343A40;
+  --color-gray-900:         #212529;
+  --color-black:            #000000;
+
+  /* --- 1.4 Surface & Background --- */
+  --color-bg-primary:       #FFFFFF;
+  --color-bg-secondary:     #F8F9FA;
+  --color-bg-tertiary:      #F0F2F5;
+  --color-bg-sidebar:       #231F20;
+  --color-bg-overlay:       rgba(35, 31, 32, 0.5);
+
+  /* --- 1.5 Text --- */
+  --color-text-primary:     #231F20;
+  --color-text-secondary:   #6C757D;
+  --color-text-tertiary:    #ADB5BD;
+  --color-text-inverse:     #FFFFFF;
+  --color-text-link:        #F05A28;
+  --color-text-link-hover:  #D14A1E;
+  --color-text-disabled:    #CED4DA;
+
+  /* --- 1.6 Border --- */
+  --color-border-default:   #DEE2E6;
+  --color-border-light:     #E9ECEF;
+  --color-border-strong:    #CED4DA;
+  --color-border-focus:     #F05A28;
+
+  /* --- 1.7 Approval Status (Portal-specific) --- */
+  --color-status-pending:   #FF9F43;   /* Warning — รอดำเนินการ */
+  --color-status-approved:  #28C76F;   /* Success — อนุมัติแล้ว */
+  --color-status-rejected:  #EA5455;   /* Danger — ปฏิเสธ */
+  --color-status-draft:     #ADB5BD;   /* Gray — แบบร่าง */
+  --color-status-review:    #00CFE8;   /* Info — กำลังตรวจสอบ */
+  --color-status-escalated: #7367F0;   /* Purple — ส่งต่อลำดับถัดไป */
+  --color-status-cancelled: #82868B;   /* Dark Gray — ยกเลิก */
+
+  /* ============================================================
+     2. TYPOGRAPHY TOKENS
+     ============================================================ */
+
+  /* --- 2.1 Font Families (from CI Guideline) --- */
+  --font-en:                'IBM Plex Sans Thai', sans-serif;
+  --font-th:                'IBM Plex Sans Thai', sans-serif;
+  --font-mono:              'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+  /* --- 2.2 Font Sizes (Type Scale from CI) --- */
+  --text-display:           48px;  /* Display — brand hero */
+  --text-h1:                36px;  /* H1 */
+  --text-h2:                28px;  /* H2 */
+  --text-h3:                22px;  /* H3 */
+  --text-h4:                18px;  /* H4 */
+  --text-body:              16px;  /* Body */
+  --text-body-sm:           14px;  /* Small / secondary text */
+  --text-caption:           12px;  /* Caption / label / overline */
+  --text-xs:                12px;  /* Badge / micro text — minimum 12px */
+
+  /* --- 2.3 Font Weights --- */
+  --weight-light:           300;
+  --weight-regular:         400;
+  --weight-medium:          500;
+  --weight-semibold:        600;
+  --weight-bold:            700;
+
+  /* --- 2.4 Line Heights --- */
+  --leading-tight:          1.1;   /* Display / large headings */
+  --leading-snug:           1.2;   /* H1, H2 */
+  --leading-normal:         1.4;   /* H3, H4 */
+  --leading-relaxed:        1.6;   /* Body text */
+  --leading-loose:          1.8;   /* Long-form reading */
+
+  /* --- 2.5 Letter Spacing --- */
+  --tracking-tight:         -2px;  /* Display */
+  --tracking-snug:          -1px;  /* H1 */
+  --tracking-normal:        0;     /* Body */
+  --tracking-wide:          1px;   /* Caption */
+  --tracking-wider:         2px;   /* Overline labels */
+  --tracking-widest:        4px;   /* Section numbers */
+
+  /* ============================================================
+     3. SPACING TOKENS
+     ============================================================ */
+
+  /* --- 3.1 Base Spacing (4px grid) --- */
+  --space-0:                0;
+  --space-1:                4px;   /* xs */
+  --space-2:                8px;   /* sm */
+  --space-3:                12px;
+  --space-4:                16px;  /* md — base unit */
+  --space-5:                20px;
+  --space-6:                24px;  /* lg */
+  --space-8:                32px;  /* xl */
+  --space-10:               40px;
+  --space-12:               48px;  /* 2xl */
+  --space-16:               64px;  /* 3xl */
+  --space-20:               80px;
+  --space-24:               96px;  /* 4xl */
+
+  /* --- 3.2 Component Spacing --- */
+  --space-input-x:          12px;  /* Input horizontal padding */
+  --space-input-y:          10px;  /* Input vertical padding */
+  --space-btn-x:            16px;  /* Button horizontal padding */
+  --space-btn-y:            10px;  /* Button vertical padding */
+  --space-card:             24px;  /* Card inner padding */
+  --space-section:          32px;  /* Section gap */
+  --space-page-x:           24px;  /* Page horizontal padding */
+  --space-page-y:           32px;  /* Page vertical padding */
+
+  /* ============================================================
+     4. SIZING TOKENS
+     ============================================================ */
+
+  /* --- 4.1 Component Heights --- */
+  --size-input-sm:          32px;
+  --size-input-md:          40px;
+  --size-input-lg:          48px;
+
+  --size-btn-sm:            32px;
+  --size-btn-md:            40px;
+  --size-btn-lg:            48px;
+
+  --size-icon-sm:           16px;
+  --size-icon-md:           20px;
+  --size-icon-lg:           24px;
+  --size-icon-xl:           32px;
+
+  --size-avatar-sm:         32px;
+  --size-avatar-md:         40px;
+  --size-avatar-lg:         56px;
+  --size-avatar-xl:         80px;
+
+  /* --- 4.2 Touch Targets (WCAG 2.2) --- */
+  --size-touch-min:         24px;  /* Minimum (WCAG AA) */
+  --size-touch-target:      44px;  /* Recommended */
+
+  /* --- 4.3 Layout Widths --- */
+  --size-sidebar:           260px;
+  --size-sidebar-collapsed: 64px;
+  --size-topbar:            64px;
+  --size-content-max:       1200px;
+  --size-form-max:          640px;
+  --size-modal-sm:          400px;
+  --size-modal-md:          560px;
+  --size-modal-lg:          720px;
+
+  /* ============================================================
+     5. BORDER & RADIUS TOKENS
+     ============================================================ */
+
+  /* --- 5.1 Border Width --- */
+  --border-width-default:   1px;
+  --border-width-strong:    2px;
+  --border-width-focus:     2px;
+
+  /* --- 5.2 Border Radius (from CI: 16px for cards) --- */
+  --radius-none:            0;
+  --radius-sm:              4px;   /* Badges, small elements */
+  --radius-md:              8px;   /* Inputs, buttons */
+  --radius-lg:              12px;  /* Cards, containers */
+  --radius-xl:              16px;  /* Feature cards (CI standard) */
+  --radius-2xl:             20px;  /* Large swatches, modals */
+  --radius-full:            9999px; /* Pills, avatars */
+
+  /* ============================================================
+     6. SHADOW TOKENS
+     ============================================================ */
+
+  --shadow-xs:              0 1px 2px rgba(35, 31, 32, 0.05);
+  --shadow-sm:              0 1px 3px rgba(35, 31, 32, 0.08),
+                            0 1px 2px rgba(35, 31, 32, 0.04);
+  --shadow-md:              0 4px 6px rgba(35, 31, 32, 0.07),
+                            0 2px 4px rgba(35, 31, 32, 0.04);
+  --shadow-lg:              0 10px 15px rgba(35, 31, 32, 0.07),
+                            0 4px 6px rgba(35, 31, 32, 0.04);
+  --shadow-xl:              0 20px 25px rgba(35, 31, 32, 0.08),
+                            0 8px 10px rgba(35, 31, 32, 0.03);
+  --shadow-focus:           0 0 0 3px rgba(240, 90, 40, 0.3);
+  --shadow-focus-danger:    0 0 0 3px rgba(234, 84, 85, 0.3);
+
+  /* ============================================================
+     7. MOTION TOKENS
+     ============================================================ */
+
+  --duration-fast:          100ms;
+  --duration-normal:        200ms;
+  --duration-slow:          300ms;
+  --duration-max:           500ms;  /* ห้ามเกิน */
+
+  --ease-in:                cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:               cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:            cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================================
+     8. Z-INDEX TOKENS
+     ============================================================ */
+
+  --z-base:                 0;
+  --z-dropdown:             100;
+  --z-sticky:               200;
+  --z-sidebar:              300;
+  --z-overlay:              400;
+  --z-modal:                500;
+  --z-popover:              600;
+  --z-tooltip:              700;
+  --z-toast:                800;
+  --z-max:                  999;
+
+  /* ============================================================
+     9. BREAKPOINTS (from CLAUDE.md)
+     ============================================================ */
+
+  /* Used via @media — CSS variables can't be used in media queries,
+     documented here as reference:
+     --breakpoint-sm:   640px    Mobile landscape
+     --breakpoint-md:   768px    Tablet portrait
+     --breakpoint-lg:   1024px   Tablet landscape
+     --breakpoint-xl:   1280px   Desktop
+     --breakpoint-2xl:  1536px   Large desktop
+  */
+
+  /* ============================================================
+     10. PORTAL-SPECIFIC TOKENS
+     ============================================================ */
+
+  /* --- 10.1 Approval Chain Indicators --- */
+  --color-role-m3:          #6366F1;   /* Indigo */
+  --color-role-e1:          #8B5CF6;   /* Violet */
+  --color-role-e2:          #A855F7;   /* Purple */
+  --color-role-e3:          #D946EF;   /* Fuchsia */
+  --color-role-ceo:         #F05A28;   /* Primary Orange */
+  --color-role-accounting:  #0EA5E9;   /* Sky Blue */
+  --color-role-cfo:         #14B8A6;   /* Teal */
+  --color-role-procurement: #F59E0B;   /* Amber */
+
+  /* --- 10.2 Department Badge Colors --- */
+  --color-dept-hr:          #EC4899;   /* Pink */
+  --color-dept-procurement: #F59E0B;   /* Amber */
+  --color-dept-operation:   #10B981;   /* Emerald */
+  --color-dept-accounting:  #0EA5E9;   /* Sky */
+  --color-dept-it:          #6366F1;   /* Indigo */
+  --color-dept-legal:       #8B5CF6;   /* Violet */
+  --color-dept-marketing:   #F43F5E;   /* Rose */
+  --color-dept-finance:     #14B8A6;   /* Teal */
+
+  /* --- 10.3 Document Type Colors --- */
+  --color-doc-pr:           #F05A28;   /* Primary — ใบขอซื้อ */
+  --color-doc-po:           #6366F1;   /* Indigo — ใบสั่งซื้อ */
+  --color-doc-petty:        #28C76F;   /* Success — เงินสดย่อย */
+  --color-doc-advance:      #0EA5E9;   /* Sky — เงินทดรองจ่าย */
+  --color-doc-credit:       #8B5CF6;   /* Violet — บัตรเครดิต */
+  --color-doc-travel:       #F59E0B;   /* Amber — ค่าเดินทาง */
+  --color-doc-sop:          #10B981;   /* Emerald — SOP */
+  --color-doc-booking:      #EC4899;   /* Pink — จองที่พัก */
+  --color-doc-training:     #14B8A6;   /* Teal — คอร์สอบรม */
+}
+
+/* ============================================================
+   PREFERS-REDUCED-MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast:    0ms;
+    --duration-normal:  0ms;
+    --duration-slow:    0ms;
+    --duration-max:     0ms;
+  }
+}

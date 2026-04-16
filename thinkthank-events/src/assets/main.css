@@ -1,0 +1,98 @@
+@import './design-tokens.css';
+
+/* ============================================================
+   Global Reset & Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-th);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  min-height: 100vh;
+}
+
+#app { min-height: 100vh; }
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+
+a { color: var(--color-text-link); text-decoration: none; }
+a:hover { color: var(--color-text-link-hover); text-decoration: underline; }
+
+*:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   GLOBAL GRID UTILITIES
+   ============================================================
+   Use `.auto-grid` for responsive card grids that auto-fit based
+   on container width + --min (minimum item width).
+
+   Examples:
+     <div class="auto-grid">                        // default 260px min
+     <div class="auto-grid" style="--min: 200px">   // stats tiles
+     <div class="auto-grid" style="--min: 320px">   // event cards
+
+   Variants:
+     .auto-grid--sm  → 180px min (stats, compact tiles)
+     .auto-grid--md  → 260px min (card lists, default)
+     .auto-grid--lg  → 320px min (event cards, detail)
+     .auto-grid--xl  → 420px min (feature cards)
+   ============================================================ */
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min, 260px), 1fr));
+  gap: var(--gap, var(--space-3));
+}
+.auto-grid--sm { --min: 180px; }
+.auto-grid--md { --min: 260px; }
+.auto-grid--lg { --min: 320px; }
+.auto-grid--xl { --min: 420px; }
+
+/* ============================================================
+   CONTAINERS — consistent max-widths per content type
+   ============================================================
+     .container          → wide (1200px) for dashboards/tables
+     .container--form    → 720px for forms/detail reading
+     .container--narrow  → 560px for modals/focused content
+     .container--wide    → 1440px for admin/data-heavy
+   ============================================================ */
+
+.container {
+  max-width: var(--size-content-max);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.container--form { max-width: 720px; }
+.container--narrow { max-width: 560px; }
+.container--wide { max-width: 1440px; }
+
+/* ============================================================
+   Stack spacing utility
+   ============================================================ */
+.stack { display: flex; flex-direction: column; }
+.stack > * + * { margin-top: var(--stack-gap, var(--space-4)); }
+.stack--sm { --stack-gap: var(--space-2); }
+.stack--md { --stack-gap: var(--space-4); }
+.stack--lg { --stack-gap: var(--space-6); }

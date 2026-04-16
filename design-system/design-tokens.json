@@ -1,0 +1,233 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "source": "REALFACT Corporate Identity Guideline v1.0",
+    "project": "Portal Realfact",
+    "updated": "2026-04-01"
+  },
+
+  "color": {
+    "brand": {
+      "primary": {
+        "$value": "#F05A28",
+        "$description": "Vibrant Orange — Pantone 1665 C | RGB(240,90,40) | CMYK(0,76,90,0)"
+      },
+      "primary-light": { "$value": "#FF7A4D" },
+      "primary-dark": { "$value": "#D14A1E" },
+      "primary-hover": { "$value": "#E04E1F" },
+      "primary-active": { "$value": "#C44419" },
+      "primary-subtle": { "$value": "#FFF0EB" },
+      "primary-muted": { "$value": "#FDDDD2" },
+      "secondary": {
+        "$value": "#231F20",
+        "$description": "Raisin Black — Pantone 296 C | RGB(35,31,32)"
+      },
+      "secondary-light": { "$value": "#3A3536" },
+      "secondary-hover": { "$value": "#1A1718" }
+    },
+
+    "semantic": {
+      "success": { "$value": "#28C76F", "$description": "สำเร็จ, ยืนยัน, ผ่าน" },
+      "success-light": { "$value": "#DFF7E9" },
+      "success-dark": { "$value": "#1F9D57" },
+      "success-subtle": { "$value": "#E8F8EE" },
+
+      "danger": { "$value": "#EA5455", "$description": "ผิดพลาด, ลบ, เตือนสำคัญ" },
+      "danger-light": { "$value": "#FDE4E4" },
+      "danger-dark": { "$value": "#D63031" },
+      "danger-subtle": { "$value": "#FDECEC" },
+
+      "warning": { "$value": "#FF9F43", "$description": "เตือน, ระวัง, ต้องตรวจสอบ" },
+      "warning-light": { "$value": "#FFF0E1" },
+      "warning-dark": { "$value": "#E08A30" },
+      "warning-subtle": { "$value": "#FFF4E6" },
+
+      "info": { "$value": "#00CFE8", "$description": "ข้อมูล, คำแนะนำ, tooltip" },
+      "info-light": { "$value": "#D6F5FA" },
+      "info-dark": { "$value": "#00A8C5" },
+      "info-subtle": { "$value": "#E0F7FA" }
+    },
+
+    "neutral": {
+      "white": { "$value": "#FFFFFF" },
+      "gray-50": { "$value": "#FAFAFA" },
+      "gray-100": { "$value": "#F8F9FA" },
+      "gray-200": { "$value": "#E9ECEF" },
+      "gray-300": { "$value": "#DEE2E6" },
+      "gray-400": { "$value": "#CED4DA" },
+      "gray-500": { "$value": "#ADB5BD" },
+      "gray-600": { "$value": "#6C757D" },
+      "gray-700": { "$value": "#495057" },
+      "gray-800": { "$value": "#343A40" },
+      "gray-900": { "$value": "#212529" },
+      "black": { "$value": "#000000" }
+    },
+
+    "status": {
+      "pending": { "$value": "#FF9F43", "$description": "รอดำเนินการ" },
+      "approved": { "$value": "#28C76F", "$description": "อนุมัติแล้ว" },
+      "rejected": { "$value": "#EA5455", "$description": "ปฏิเสธ" },
+      "draft": { "$value": "#ADB5BD", "$description": "แบบร่าง" },
+      "review": { "$value": "#00CFE8", "$description": "กำลังตรวจสอบ" },
+      "escalated": { "$value": "#7367F0", "$description": "ส่งต่อลำดับถัดไป" },
+      "cancelled": { "$value": "#82868B", "$description": "ยกเลิก" }
+    },
+
+    "role": {
+      "m3": { "$value": "#6366F1", "$description": "Approver M3" },
+      "e1": { "$value": "#8B5CF6", "$description": "Approver E1" },
+      "e2": { "$value": "#A855F7", "$description": "Approver E2" },
+      "e3": { "$value": "#D946EF", "$description": "Approver E3" },
+      "ceo": { "$value": "#F05A28", "$description": "CEO" },
+      "accounting": { "$value": "#0EA5E9", "$description": "Accounting" },
+      "cfo": { "$value": "#14B8A6", "$description": "CFO" },
+      "procurement": { "$value": "#F59E0B", "$description": "Procurement" }
+    },
+
+    "department": {
+      "hr": { "$value": "#EC4899" },
+      "procurement": { "$value": "#F59E0B" },
+      "operation": { "$value": "#10B981" },
+      "accounting": { "$value": "#0EA5E9" },
+      "it": { "$value": "#6366F1" },
+      "legal": { "$value": "#8B5CF6" },
+      "marketing": { "$value": "#F43F5E" },
+      "finance": { "$value": "#14B8A6" }
+    }
+  },
+
+  "typography": {
+    "family": {
+      "en": { "$value": "'IBM Plex Sans Thai', sans-serif" },
+      "th": { "$value": "'IBM Plex Sans Thai', sans-serif" },
+      "mono": { "$value": "'JetBrains Mono', 'Fira Code', 'SF Mono', monospace" }
+    },
+    "size": {
+      "display": { "$value": "48px" },
+      "h1": { "$value": "36px" },
+      "h2": { "$value": "28px" },
+      "h3": { "$value": "22px" },
+      "h4": { "$value": "18px" },
+      "body": { "$value": "16px" },
+      "body-sm": { "$value": "14px" },
+      "caption": { "$value": "12px" },
+      "xs": { "$value": "12px" }
+    },
+    "weight": {
+      "light": { "$value": 300 },
+      "regular": { "$value": 400 },
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold": { "$value": 700 }
+    },
+    "lineHeight": {
+      "tight": { "$value": 1.1 },
+      "snug": { "$value": 1.2 },
+      "normal": { "$value": 1.4 },
+      "relaxed": { "$value": 1.6 },
+      "loose": { "$value": 1.8 }
+    },
+    "letterSpacing": {
+      "tight": { "$value": "-2px" },
+      "snug": { "$value": "-1px" },
+      "normal": { "$value": "0" },
+      "wide": { "$value": "1px" },
+      "wider": { "$value": "2px" },
+      "widest": { "$value": "4px" }
+    }
+  },
+
+  "spacing": {
+    "0": { "$value": "0" },
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "12px" },
+    "4": { "$value": "16px" },
+    "5": { "$value": "20px" },
+    "6": { "$value": "24px" },
+    "8": { "$value": "32px" },
+    "10": { "$value": "40px" },
+    "12": { "$value": "48px" },
+    "16": { "$value": "64px" },
+    "20": { "$value": "80px" },
+    "24": { "$value": "96px" }
+  },
+
+  "sizing": {
+    "input": {
+      "sm": { "$value": "32px" },
+      "md": { "$value": "40px" },
+      "lg": { "$value": "48px" }
+    },
+    "icon": {
+      "sm": { "$value": "16px" },
+      "md": { "$value": "20px" },
+      "lg": { "$value": "24px" },
+      "xl": { "$value": "32px" }
+    },
+    "avatar": {
+      "sm": { "$value": "32px" },
+      "md": { "$value": "40px" },
+      "lg": { "$value": "56px" },
+      "xl": { "$value": "80px" }
+    },
+    "touch": {
+      "min": { "$value": "24px", "$description": "WCAG 2.2 AA minimum" },
+      "target": { "$value": "44px", "$description": "Recommended" }
+    }
+  },
+
+  "radius": {
+    "none": { "$value": "0" },
+    "sm": { "$value": "4px" },
+    "md": { "$value": "8px" },
+    "lg": { "$value": "12px" },
+    "xl": { "$value": "16px", "$description": "CI standard for cards" },
+    "2xl": { "$value": "20px" },
+    "full": { "$value": "9999px" }
+  },
+
+  "shadow": {
+    "xs": { "$value": "0 1px 2px rgba(35,31,32,0.05)" },
+    "sm": { "$value": "0 1px 3px rgba(35,31,32,0.08), 0 1px 2px rgba(35,31,32,0.04)" },
+    "md": { "$value": "0 4px 6px rgba(35,31,32,0.07), 0 2px 4px rgba(35,31,32,0.04)" },
+    "lg": { "$value": "0 10px 15px rgba(35,31,32,0.07), 0 4px 6px rgba(35,31,32,0.04)" },
+    "xl": { "$value": "0 20px 25px rgba(35,31,32,0.08), 0 8px 10px rgba(35,31,32,0.03)" },
+    "focus": { "$value": "0 0 0 3px rgba(240,90,40,0.3)" }
+  },
+
+  "motion": {
+    "duration": {
+      "fast": { "$value": "100ms" },
+      "normal": { "$value": "200ms" },
+      "slow": { "$value": "300ms" },
+      "max": { "$value": "500ms" }
+    },
+    "easing": {
+      "in": { "$value": "cubic-bezier(0.4, 0, 1, 1)" },
+      "out": { "$value": "cubic-bezier(0, 0, 0.2, 1)" },
+      "in-out": { "$value": "cubic-bezier(0.4, 0, 0.2, 1)" }
+    }
+  },
+
+  "breakpoint": {
+    "sm": { "$value": "640px", "$description": "Mobile landscape" },
+    "md": { "$value": "768px", "$description": "Tablet portrait" },
+    "lg": { "$value": "1024px", "$description": "Tablet landscape" },
+    "xl": { "$value": "1280px", "$description": "Desktop" },
+    "2xl": { "$value": "1536px", "$description": "Large desktop" }
+  },
+
+  "zIndex": {
+    "base": { "$value": 0 },
+    "dropdown": { "$value": 100 },
+    "sticky": { "$value": 200 },
+    "sidebar": { "$value": 300 },
+    "overlay": { "$value": 400 },
+    "modal": { "$value": 500 },
+    "popover": { "$value": 600 },
+    "tooltip": { "$value": 700 },
+    "toast": { "$value": 800 },
+    "max": { "$value": 999 }
+  }
+}
