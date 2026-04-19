@@ -47,7 +47,7 @@ function formatTime(iso: string) { return iso.slice(11, 16) + ' น.' }
 </script>
 
 <template>
-  <div class="page">
+  <div class="page" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -83,7 +83,7 @@ function formatTime(iso: string) { return iso.slice(11, 16) + ' น.' }
       </header>
 
       <!-- Summary scores -->
-      <section class="summary">
+      <section class="auto-grid" style="--min: 180px; gap: var(--space-3)">
         <div class="summary-card">
           <div class="summary-card__icon"><AppIcon :icon="Heart" size="lg" /></div>
           <p class="summary-card__label">ภาพรวม</p>
@@ -176,8 +176,7 @@ function formatTime(iso: string) { return iso.slice(11, 16) + ' น.' }
 </template>
 
 <style scoped>
-.page { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__tag { font-size: var(--text-caption); color: var(--color-text-secondary); }
@@ -185,7 +184,7 @@ function formatTime(iso: string) { return iso.slice(11, 16) + ' น.' }
 .head__desc { font-size: var(--text-body-sm); color: var(--color-text-secondary); }
 .head__actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
 
-.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-3); }
+/* .summary grid via .auto-grid in template */
 .summary-card {
   padding: var(--space-4);
   background: var(--color-white);

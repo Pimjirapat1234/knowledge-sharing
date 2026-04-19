@@ -27,7 +27,7 @@ const ui = useUiState()
 </script>
 
 <template>
-  <div class="dash">
+  <div class="page page--form dash">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -40,7 +40,7 @@ const ui = useUiState()
       </section>
 
       <!-- Stats -->
-      <section class="stats">
+      <section class="auto-grid" style="--min: 200px">
         <StatCard label="Events ปีนี้" :value="3" :icon="History" color="primary" />
         <StatCard label="Avg Score" value="85" suffix="/100" :delta="5" :icon="BarChart3" color="success" />
         <StatCard label="อันดับล่าสุด" :value="4" :delta="2" :icon="Sparkles" color="warning" />
@@ -115,7 +115,7 @@ const ui = useUiState()
         <div class="sect-head">
           <h2 class="sect-head__title">ประวัติงาน</h2>
         </div>
-        <div class="past-grid">
+        <div class="auto-grid" style="--min: 280px">
           <RouterLink
             v-for="e in pastEvents"
             :key="e.id"
@@ -151,14 +151,13 @@ const ui = useUiState()
 </template>
 
 <style scoped>
-.dash { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-6); }
-@media (min-width: 768px) { .dash { padding: var(--space-6); } }
+/* layout via global .page utility */
 
 .greet__hi { font-size: var(--text-body); color: var(--color-text-secondary); }
 .greet__title { font-size: var(--text-h1); font-weight: var(--weight-bold); line-height: var(--leading-snug); margin: var(--space-1) 0; }
 .greet__sub { font-size: var(--text-body-sm); color: var(--color-text-secondary); }
 
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3); }
+/* stats grid via global .auto-grid --min:200px */
 
 .sect-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3); }
 .sect-head__title { font-size: var(--text-h3); font-weight: var(--weight-semibold); }
@@ -198,7 +197,7 @@ const ui = useUiState()
 .task.is-todo .task__label { color: var(--color-text-primary); font-weight: var(--weight-medium); }
 .task__cta { display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-caption); font-weight: var(--weight-semibold); color: var(--color-primary); }
 
-.past-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-3); }
+/* past-grid via global .auto-grid --min:280px */
 .past-card {
   display: flex; gap: var(--space-3); color: var(--color-text-primary);
   background: var(--color-white); border: 1px solid var(--color-border-light);

@@ -47,7 +47,7 @@ function vote() {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form vote-page">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" title="ไม่เปิดโหวต" message="HR ยังไม่ได้เปิดให้โหวต · กรุณารอประกาศ" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
     <EmptyState v-else-if="ui.isEmpty.value" :icon="Vote" title="ยังไม่มีธีมให้โหวต" message="HR ยังไม่ได้ตั้งค่าตัวเลือกธีม · เปิดโหวต 1 สัปดาห์ก่อนงาน" />
@@ -71,7 +71,7 @@ function vote() {
         </div>
       </header>
 
-      <section class="themes" role="radiogroup" aria-label="ตัวเลือกธีม">
+      <section class="auto-grid themes" style="--min:300px" role="radiogroup" aria-label="ตัวเลือกธีม">
         <label
           v-for="t in themes"
           :key="t.id"
@@ -119,8 +119,8 @@ function vote() {
 </template>
 
 <style scoped>
-.page { max-width: 720px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-12); }
-@media (min-width: 768px) { .page { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page .page--form */
+.vote-page { padding-bottom: var(--space-12); }
 
 .head__tag { font-size: var(--text-caption); text-transform: uppercase; letter-spacing: var(--tracking-wider); color: var(--color-primary); font-weight: var(--weight-semibold); }
 .head__title { font-size: var(--text-h2); font-weight: var(--weight-bold); margin: var(--space-1) 0 var(--space-2); }
@@ -128,7 +128,7 @@ function vote() {
 .head__meta { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
 .head__total { font-size: var(--text-caption); color: var(--color-text-secondary); }
 
-.themes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-3); }
+/* themes grid via global .auto-grid --min:300px */
 
 .theme {
   display: flex; flex-direction: column;

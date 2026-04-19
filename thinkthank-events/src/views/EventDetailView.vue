@@ -60,7 +60,7 @@ const dateText = computed(() => formatDateRange(event.value.startAt, event.value
 </script>
 
 <template>
-  <div class="ed">
+  <div class="page page--form ed">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" title="ไม่พบกิจกรรม" />
 
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
@@ -95,7 +95,7 @@ const dateText = computed(() => formatDateRange(event.value.startAt, event.value
       <!-- Actions -->
       <section class="acts">
         <h2 class="acts__title">ทำอะไรได้บ้าง</h2>
-        <div class="acts__grid">
+        <div class="acts__grid auto-grid">
           <RouterLink
             v-for="a in actions"
             :key="a.to"
@@ -133,8 +133,7 @@ const dateText = computed(() => formatDateRange(event.value.startAt, event.value
 </template>
 
 <style scoped>
-.ed { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-6); }
-@media (min-width: 768px) { .ed { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page */
 
 .hero {
   background: var(--color-white);
@@ -159,11 +158,7 @@ const dateText = computed(() => formatDateRange(event.value.startAt, event.value
 .hero__meta li { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-body-sm); color: var(--color-text-secondary); }
 
 .acts__title { font-size: var(--text-h3); font-weight: var(--weight-semibold); margin-bottom: var(--space-4); }
-.acts__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: var(--space-3);
-}
+/* .acts__grid uses global .auto-grid */
 
 .act-card {
   display: flex; flex-direction: column; align-items: center; gap: var(--space-2);

@@ -83,7 +83,7 @@ const totalRated = computed(() =>
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form rate-page">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -229,8 +229,8 @@ const totalRated = computed(() =>
 </template>
 
 <style scoped>
-.page { max-width: 720px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-16); }
-@media (min-width: 768px) { .page { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page + .page--form */
+.rate-page { padding-bottom: var(--space-16); }
 
 .head__progress { font-size: var(--text-body); color: var(--color-text-secondary); margin-bottom: var(--space-2); }
 .head__progress strong { color: var(--color-primary); }

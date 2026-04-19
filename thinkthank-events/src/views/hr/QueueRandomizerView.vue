@@ -51,7 +51,7 @@ function reset() {
 </script>
 
 <template>
-  <div class="page" :class="{ 'is-fullscreen': fullscreen }">
+  <div class="page" :class="{ 'is-fullscreen': fullscreen }" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -97,7 +97,7 @@ function reset() {
           </AppButton>
         </div>
 
-        <div v-else-if="rolling" class="stage__rolling">
+        <div v-else-if="rolling" class="stage__rolling auto-grid" style="--min: 100px; gap: var(--space-3)">
           <div class="slot" v-for="g in groups" :key="g.id">
             <div class="slot__reel">
               <span v-for="i in 10" :key="i" :style="{ color: g.color }">
@@ -130,8 +130,7 @@ function reset() {
 </template>
 
 <style scoped>
-.page { max-width: 960px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 .page.is-fullscreen {
   position: fixed; inset: 0; z-index: var(--z-modal);
   background: var(--color-secondary);
@@ -167,10 +166,8 @@ function reset() {
 .stage__idle h2 { font-size: var(--text-h2); font-weight: var(--weight-bold); }
 .stage__idle p { color: var(--color-text-secondary); max-width: 420px; line-height: var(--leading-relaxed); }
 
+/* .stage__rolling grid via .auto-grid in template */
 .stage__rolling {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: var(--space-3);
   width: 100%; max-width: 600px;
 }
 .slot {

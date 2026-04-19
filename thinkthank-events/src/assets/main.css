@@ -89,6 +89,38 @@ a:hover { color: var(--color-text-link-hover); text-decoration: underline; }
 .container--wide { max-width: 1440px; }
 
 /* ============================================================
+   PAGE LAYOUT — standardized view wrapper
+   ============================================================
+   Combines container + padding + vertical stack.
+   Every view should wrap content in ONE of these:
+
+     <div class="page">                   → dashboard (1200px)
+     <div class="page page--form">        → form / detail (720px)
+     <div class="page page--narrow">      → focused / modal-like (560px)
+     <div class="page page--wide">        → admin data-heavy (1440px)
+     <div class="page page--full">        → fullscreen (no max-width)
+
+   Override gap per-view with `style="--page-gap: var(--space-4)"`.
+   ============================================================ */
+
+.page {
+  width: 100%;
+  max-width: var(--size-content-max);
+  margin: 0 auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap, var(--space-6));
+}
+@media (min-width: 768px) {
+  .page { padding: var(--space-8) var(--space-6); }
+}
+.page--form   { max-width: 720px; }
+.page--narrow { max-width: 560px; }
+.page--wide   { max-width: 1440px; }
+.page--full   { max-width: none; }
+
+/* ============================================================
    Stack spacing utility
    ============================================================ */
 .stack { display: flex; flex-direction: column; }

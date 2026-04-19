@@ -193,7 +193,7 @@
   --size-sidebar-collapsed: 64px;
   --size-topbar:            64px;
   --size-content-max:       1200px;
-  --size-form-max:          640px;
+  --size-form-max:          720px;  /* Aligned with .page--form */
   --size-modal-sm:          400px;
   --size-modal-md:          560px;
   --size-modal-lg:          720px;

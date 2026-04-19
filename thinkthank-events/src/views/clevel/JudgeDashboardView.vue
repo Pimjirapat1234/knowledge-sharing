@@ -28,7 +28,7 @@ const nextAction = computed(() => `ให้คะแนนทีมทั้ง
 </script>
 
 <template>
-  <div class="page">
+  <div class="page" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -111,8 +111,7 @@ const nextAction = computed(() => `ให้คะแนนทีมทั้ง
 </template>
 
 <style scoped>
-.page { max-width: 960px; padding: var(--space-4); margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 
 .hero {
   padding: var(--space-6);

@@ -54,7 +54,7 @@ function submit() {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form fb-page">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" title="ยังไม่เปิด feedback" message="จะเปิดให้ feedback หลังงานจบ" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
     <EmptyState v-else-if="ui.isEmpty.value" title="ยังไม่เปิด feedback" message="เราจะส่งลิงก์หลังงานจบ 1 ชม." />
@@ -153,8 +153,8 @@ function submit() {
 </template>
 
 <style scoped>
-.page { max-width: 720px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-4); padding-bottom: var(--space-12); }
-@media (min-width: 768px) { .page { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page .page--form */
+.fb-page { padding-bottom: var(--space-12); }
 
 .head__tag { font-size: var(--text-caption); color: var(--color-text-secondary); }
 .head__title { font-size: var(--text-h2); font-weight: var(--weight-bold); margin: var(--space-1) 0 var(--space-2); }

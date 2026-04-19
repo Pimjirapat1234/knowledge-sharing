@@ -33,7 +33,7 @@ function save(groupId: string) {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form tf-page">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -107,8 +107,8 @@ function save(groupId: string) {
 </template>
 
 <style scoped>
-.page { max-width: 720px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-12); }
-@media (min-width: 768px) { .page { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page + .page--form */
+.tf-page { padding-bottom: var(--space-12); }
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__tag { font-size: var(--text-caption); color: var(--color-text-secondary); }

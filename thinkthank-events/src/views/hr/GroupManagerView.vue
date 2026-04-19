@@ -119,7 +119,7 @@ function addGroup() {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page" style="--page-gap: var(--space-4)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -228,7 +228,7 @@ function addGroup() {
       </section>
 
       <!-- Groups grid -->
-      <section class="groups">
+      <section class="auto-grid" style="--min: 240px; gap: var(--space-3)">
         <article
           v-for="g in groups"
           :key="g.id"
@@ -281,8 +281,7 @@ function addGroup() {
 </template>
 
 <style scoped>
-.page { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-4); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__tag { font-size: var(--text-caption); color: var(--color-text-secondary); }
@@ -398,11 +397,7 @@ function addGroup() {
 }
 .pool__empty { color: var(--color-text-tertiary); font-size: var(--text-caption); padding: var(--space-2); }
 
-.groups {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-3);
-}
+/* .groups grid via .auto-grid in template */
 
 .group {
   background: var(--color-white);

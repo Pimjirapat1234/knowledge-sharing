@@ -36,7 +36,7 @@ function deleteAccount() { info('ส่งคำขอลบข้อมูล�
 </script>
 
 <template>
-  <div class="p">
+  <div class="page page--form p">
     <ErrorState v-if="ui.isError.value" title="โหลดโปรไฟล์ไม่ได้" @retry="() => {}" />
 
     <template v-else-if="ui.isLoading.value">
@@ -107,8 +107,7 @@ function deleteAccount() { info('ส่งคำขอลบข้อมูล�
 </template>
 
 <style scoped>
-.p { max-width: 720px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .p { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page + .page--form */
 
 .id-card {
   display: flex; gap: var(--space-4); align-items: center;

@@ -47,7 +47,7 @@ function save() { success('บันทึกแล้ว', 'ตั้งค่�
 </script>
 
 <template>
-  <div class="page">
+  <div class="page" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -110,7 +110,7 @@ function save() { success('บันทึกแล้ว', 'ตั้งค่�
         <LoadingSkeleton variant="card" :count="3" />
       </template>
 
-      <div v-else class="theme-grid">
+      <div v-else class="auto-grid" style="--min: 320px; gap: var(--space-4)">
         <article v-for="(t, idx) in themes" :key="t.id" class="theme-edit">
           <div class="theme-edit__head">
             <span class="theme-edit__num">ตัวเลือกที่ {{ idx + 1 }}</span>
@@ -152,8 +152,7 @@ function save() { success('บันทึกแล้ว', 'ตั้งค่�
 </template>
 
 <style scoped>
-.page { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__tag { font-size: var(--text-caption); color: var(--color-text-secondary); }
@@ -182,7 +181,7 @@ function save() { success('บันทึกแล้ว', 'ตั้งค่�
 .sect-head__title { font-size: var(--text-h4); font-weight: var(--weight-semibold); }
 .sect-head__title span { font-size: var(--text-body-sm); color: var(--color-text-tertiary); font-weight: var(--weight-regular); }
 
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-4); }
+/* .theme-grid via .auto-grid in template */
 
 .theme-edit {
   background: var(--color-white);

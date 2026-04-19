@@ -29,7 +29,7 @@ function isMe(uid: string) { return uid === myUserId.value }
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form lb-page">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" title="Leaderboard ยังไม่เปิด" message="เปิดให้ดูหลังจบงาน · HR review 10 นาที" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
     <EmptyState v-else-if="ui.isEmpty.value" :icon="Trophy" title="Leaderboard ยังไม่ได้ประกาศ" message="งานยังไม่จบ · เปิดดูได้หลัง 15 พ.ค. 18:00 น." />
@@ -154,8 +154,8 @@ function isMe(uid: string) { return uid === myUserId.value }
 </template>
 
 <style scoped>
-.page { max-width: 720px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-12); }
-@media (min-width: 768px) { .page { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page .page--form */
+.lb-page { padding-bottom: var(--space-12); }
 
 .head { text-align: center; }
 .head__tag { font-size: var(--text-caption); text-transform: uppercase; letter-spacing: var(--tracking-wider); color: var(--color-primary); font-weight: var(--weight-semibold); }

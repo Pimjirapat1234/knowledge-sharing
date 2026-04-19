@@ -70,7 +70,7 @@ const visibleInSidebar = computed(() => permStore.visibleMenus(roleKey.value))
 </script>
 
 <template>
-  <div class="page">
+  <div class="page" style="--page-gap: var(--space-4)">
     <ErrorState v-if="!isValidRole" :recoverable="false" title="Role ไม่ถูกต้อง" message="ไม่พบ role นี้ในระบบ" />
 
     <template v-else>
@@ -209,8 +209,7 @@ const visibleInSidebar = computed(() => permStore.visibleMenus(roleKey.value))
 </template>
 
 <style scoped>
-.page { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-4); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 
 .crumbs { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-body-sm); color: var(--color-text-secondary); flex-wrap: wrap; }
 .crumbs a { color: var(--color-text-secondary); display: inline-flex; align-items: center; gap: 4px; }

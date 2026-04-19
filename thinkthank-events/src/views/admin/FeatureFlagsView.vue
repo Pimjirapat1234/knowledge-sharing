@@ -32,7 +32,7 @@ function toggleFlag(key: string) {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -109,8 +109,7 @@ function toggleFlag(key: string) {
 </template>
 
 <style scoped>
-.page { max-width: 800px; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page + .page--form */
 
 .head__breadcrumb { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-caption); color: var(--color-danger-dark); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
 .head__title { font-size: var(--text-h2); font-weight: var(--weight-bold); margin: 4px 0; }

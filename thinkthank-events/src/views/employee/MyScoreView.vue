@@ -31,7 +31,7 @@ const aboveAvg = computed(() => trendEnd.value - teamAvgEnd.value)
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form score-page">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" title="ไม่พบคะแนน" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
     <EmptyState v-else-if="ui.isEmpty.value" :icon="BarChart3" title="ยังไม่มีคะแนนสำหรับคุณ" message="เข้าร่วมกิจกรรมและรับ feedback จาก C-Level เพื่อดูคะแนนของคุณ" />
@@ -49,7 +49,7 @@ const aboveAvg = computed(() => trendEnd.value - teamAvgEnd.value)
       </header>
 
       <!-- Key stats -->
-      <section class="stats">
+      <section class="auto-grid stats" style="--min:200px">
         <StatCard label="อันดับ" :value="myScore?.rank ?? 0" :delta="myScore?.deltaRank" :icon="Trophy" color="warning" />
         <StatCard label="คะแนน" :value="myScore?.score ?? 0" suffix="/100" :icon="Sparkles" color="primary" />
         <StatCard label="Trend" :value="trendDelta" suffix="คะแนน" :icon="TrendingUp" color="success" />
@@ -95,7 +95,7 @@ const aboveAvg = computed(() => trendEnd.value - teamAvgEnd.value)
       <!-- Achievements placeholder (v2) -->
       <section class="badges">
         <h2 class="badges__title">Badges (v2)</h2>
-        <div class="badges__grid">
+        <div class="auto-grid badges__grid" style="--min:140px">
           <div class="badge-item is-locked"><AppIcon :icon="Trophy" size="xl" />Top 3 Finisher</div>
           <div class="badge-item is-locked"><AppIcon :icon="Sparkles" size="xl" />Perfect Score</div>
           <div class="badge-item is-locked"><AppIcon :icon="TrendingUp" size="xl" />Most Improved</div>
@@ -107,8 +107,8 @@ const aboveAvg = computed(() => trendEnd.value - teamAvgEnd.value)
 </template>
 
 <style scoped>
-.page { max-width: 720px; margin: 0 auto; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-12); }
-@media (min-width: 768px) { .page { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page .page--form */
+.score-page { padding-bottom: var(--space-12); }
 
 .head { text-align: center; padding: var(--space-6); background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); color: var(--color-white); border-radius: var(--radius-xl); }
 .head__tag { font-size: var(--text-caption); text-transform: uppercase; letter-spacing: var(--tracking-wider); opacity: 0.85; }
@@ -116,7 +116,7 @@ const aboveAvg = computed(() => trendEnd.value - teamAvgEnd.value)
 .head__title span { font-size: var(--text-h3); opacity: 0.8; font-weight: var(--weight-regular); }
 .head__sub { font-size: var(--text-body-sm); opacity: 0.9; }
 
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3); }
+/* stats grid via global .auto-grid --min:200px */
 
 .chart {
   background: var(--color-white);
@@ -163,7 +163,8 @@ const aboveAvg = computed(() => trendEnd.value - teamAvgEnd.value)
   padding: var(--space-5);
 }
 .badges__title { font-size: var(--text-h4); font-weight: var(--weight-semibold); margin-bottom: var(--space-3); }
-.badges__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-3); margin-bottom: var(--space-3); }
+/* badges__grid via global .auto-grid --min:140px */
+.badges__grid { margin-bottom: var(--space-3); }
 .badge-item {
   display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
   padding: var(--space-4); border-radius: var(--radius-lg);

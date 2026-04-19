@@ -29,7 +29,7 @@ function save() { success('บันทึกการตั้งค่า', '�
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form" style="--page-gap: var(--space-4)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -58,7 +58,7 @@ function save() { success('บันทึกการตั้งค่า', '�
           Connected
         </AppBadge>
       </div>
-      <dl class="kv">
+      <dl class="kv auto-grid">
         <div><dt>Provider</dt><dd>Microsoft Azure AD</dd></div>
         <div><dt>Tenant ID</dt><dd><code>real-factory.onmicrosoft.com</code></dd></div>
         <div><dt>App ID</dt><dd><code>9b4f3e21-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code></dd></div>
@@ -123,7 +123,7 @@ function save() { success('บันทึกการตั้งค่า', '�
           <p class="sect__desc">§9.7.4 · in-region compliance</p>
         </div>
       </div>
-      <dl class="kv">
+      <dl class="kv auto-grid">
         <div><dt>Primary region</dt><dd>AWS Singapore (ap-southeast-1)</dd></div>
         <div><dt>Cross-border</dt><dd>ห้าม US region สำหรับ employee data</dd></div>
         <div><dt>CDN</dt><dd>CloudFront (Asia POPs)</dd></div>
@@ -143,8 +143,7 @@ function save() { success('บันทึกการตั้งค่า', '�
 </template>
 
 <style scoped>
-.page { max-width: 800px; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-4); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page + .page--form */
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__breadcrumb { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-caption); color: var(--color-danger-dark); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
@@ -165,7 +164,7 @@ function save() { success('บันทึกการตั้งค่า', '�
 
 .stack { display: flex; flex-direction: column; gap: var(--space-3); }
 
-.kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-3); font-size: var(--text-body-sm); }
+.kv { /* grid via global .auto-grid */ font-size: var(--text-body-sm); }
 .kv > div { background: var(--color-gray-50); padding: var(--space-3); border-radius: var(--radius-md); }
 .kv dt { font-size: var(--text-caption); color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: var(--tracking-wide); margin-bottom: 2px; }
 .kv dd { color: var(--color-text-primary); font-weight: var(--weight-medium); }

@@ -35,7 +35,7 @@ const registrationPct = computed(() => Math.round((confirmed.value / event.value
 </script>
 
 <template>
-  <div class="dash">
+  <div class="page dash" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -73,7 +73,7 @@ const registrationPct = computed(() => Math.round((confirmed.value / event.value
         <h2 class="active__title">{{ event.title }}</h2>
 
         <!-- Stats -->
-        <div class="stats">
+        <div class="auto-grid" style="--min: 180px; gap: var(--space-3)">
           <StatCard label="ลงทะเบียน" :value="confirmed" :suffix="`/${event.capacity}`" :icon="Users" color="primary" />
           <StatCard label="Check-in" :value="checkedIn" :icon="Camera" color="success" />
           <StatCard label="แพ้อาหาร" :value="allergyCount" :icon="AlertTriangle" color="warning" />
@@ -93,7 +93,7 @@ const registrationPct = computed(() => Math.round((confirmed.value / event.value
         </div>
 
         <!-- Quick actions grid -->
-        <div class="qa">
+        <div class="auto-grid" style="--min: 180px; gap: var(--space-3)">
           <RouterLink :to="`/events/${event.id}/admin/participants`" class="qa__card">
             <AppIcon :icon="Users" size="lg" aria-hidden="true" />
             <span class="qa__title">ผู้ลงทะเบียน</span>
@@ -146,8 +146,7 @@ const registrationPct = computed(() => Math.round((confirmed.value / event.value
 </template>
 
 <style scoped>
-.dash { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .dash { padding: var(--space-6); } }
+/* layout via global .page */
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__tag { font-size: var(--text-caption); color: var(--color-text-secondary); }
@@ -165,7 +164,7 @@ const registrationPct = computed(() => Math.round((confirmed.value / event.value
 .active__date { font-size: var(--text-caption); color: var(--color-text-secondary); }
 .active__title { font-size: var(--text-h3); font-weight: var(--weight-bold); }
 
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-3); }
+/* .stats grid via .auto-grid in template */
 
 .progress {
   background: var(--color-gray-50);
@@ -182,7 +181,7 @@ const registrationPct = computed(() => Math.round((confirmed.value / event.value
 }
 .progress__note { font-size: var(--text-caption); color: var(--color-text-secondary); }
 
-.qa { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-3); }
+/* .qa grid via .auto-grid in template */
 .qa__card {
   display: flex; flex-direction: column; gap: var(--space-1);
   padding: var(--space-4);

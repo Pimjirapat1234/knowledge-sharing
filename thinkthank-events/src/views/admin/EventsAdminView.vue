@@ -34,7 +34,7 @@ const allEvents = computed(() => [event.value, ...pastEvents.value.map(p => ({
 </script>
 
 <template>
-  <div class="page">
+  <div class="page" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -54,7 +54,7 @@ const allEvents = computed(() => [event.value, ...pastEvents.value.map(p => ({
         </AppButton>
       </header>
 
-      <section class="stats">
+      <section class="stats auto-grid">
         <StatCard label="Total Events" :value="allEvents.length" :icon="Calendar" color="primary" />
         <StatCard label="Active" :value="1" :icon="CheckCircle2" color="success" />
         <StatCard label="Participants" :value="participants.length" :icon="Users" color="info" />
@@ -73,7 +73,7 @@ const allEvents = computed(() => [event.value, ...pastEvents.value.map(p => ({
       />
 
       <!-- Events list -->
-      <div v-else class="events">
+      <div v-else class="events auto-grid">
         <!-- Active -->
         <article class="event event--active">
           <img :src="event.bannerUrl" :alt="event.title" class="event__img" />
@@ -129,17 +129,14 @@ const allEvents = computed(() => [event.value, ...pastEvents.value.map(p => ({
 </template>
 
 <style scoped>
-.page { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__breadcrumb { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-caption); color: var(--color-danger-dark); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
 .head__title { font-size: var(--text-h2); font-weight: var(--weight-bold); margin: 4px 0; }
 .head__desc { font-size: var(--text-body-sm); color: var(--color-text-secondary); max-width: 640px; }
 
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3); }
-
-.events { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-3); }
+/* .stats + .events use global .auto-grid */
 
 .event {
   display: flex; flex-direction: column;

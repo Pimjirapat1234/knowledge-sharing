@@ -91,7 +91,7 @@ function handleCancel() {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page page--form reg-page">
     <!-- BLOCKING ERROR — 404/permission -->
     <ErrorState
       v-if="ui.isErrorBlocking.value"
@@ -356,13 +356,8 @@ function handleCancel() {
 </template>
 
 <style scoped>
-.page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: var(--space-4);
-  padding-bottom: var(--space-16);
-}
-@media (min-width: 768px) { .page { padding: var(--space-8) var(--space-6); } }
+/* layout via global .page .page--form */
+.reg-page { padding-bottom: var(--space-16); }
 
 .loading-wrap { display: flex; flex-direction: column; gap: var(--space-4); }
 

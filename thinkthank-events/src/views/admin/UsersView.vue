@@ -102,7 +102,7 @@ const rolesList: UserRole[] = ['EMPLOYEE', 'HR', 'C_LEVEL', 'SUPER_ADMIN']
 </script>
 
 <template>
-  <div class="page">
+  <div class="page" style="--page-gap: var(--space-5)">
     <ErrorState v-if="ui.isErrorBlocking.value" :recoverable="false" />
     <ErrorState v-else-if="ui.isError.value" @retry="() => {}" />
 
@@ -129,7 +129,7 @@ const rolesList: UserRole[] = ['EMPLOYEE', 'HR', 'C_LEVEL', 'SUPER_ADMIN']
       </header>
 
       <!-- Stats -->
-      <section class="stats">
+      <section class="stats auto-grid">
         <StatCard label="Total" :value="stats.total" :icon="User" color="primary" />
         <StatCard label="Active" :value="stats.active" :icon="Check" color="success" />
         <StatCard label="Employees" :value="stats.employees" :icon="User" color="info" />
@@ -304,8 +304,7 @@ const rolesList: UserRole[] = ['EMPLOYEE', 'HR', 'C_LEVEL', 'SUPER_ADMIN']
 </template>
 
 <style scoped>
-.page { max-width: var(--size-content-max); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
-@media (min-width: 768px) { .page { padding: var(--space-6); } }
+/* layout via global .page */
 
 .head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
 .head__breadcrumb { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-caption); color: var(--color-danger-dark); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
@@ -313,7 +312,7 @@ const rolesList: UserRole[] = ['EMPLOYEE', 'HR', 'C_LEVEL', 'SUPER_ADMIN']
 .head__desc { font-size: var(--text-body-sm); color: var(--color-text-secondary); max-width: 640px; }
 .head__actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
 
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-3); }
+/* .stats uses global .auto-grid */
 
 .filter { display: flex; gap: var(--space-2); flex-wrap: wrap; background: var(--color-white); border: 1px solid var(--color-border-light); border-radius: var(--radius-lg); padding: var(--space-2); }
 .filter__search { flex: 1; min-width: 200px; display: flex; align-items: center; gap: var(--space-2); padding: 0 var(--space-3); background: var(--color-gray-50); border-radius: var(--radius-md); color: var(--color-text-tertiary); }
